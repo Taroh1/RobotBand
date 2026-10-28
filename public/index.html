@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Launchpad X Demo für eine interaktive Roboterband">
+  <title>Robot Band — Chord &amp; Loop Studio</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23c4f56e'/%3E%3Cpath d='M15 20h34v27H15z' fill='%23141919'/%3E%3Ccircle cx='25' cy='32' r='4' fill='%23c4f56e'/%3E%3Ccircle cx='39' cy='32' r='4' fill='%23c4f56e'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/style.css">
+  <script type="module" src="/app.js"></script>
+</head>
+<body>
+  <header class="topbar"><a class="brand" href="/" aria-label="Robot Band Startseite"><span class="brand-mark">▦</span> ROBOT BAND<span class="brand-divider"></span><span class="studio">CHORD &amp; LOOP STUDIO</span></a><span class="status-pill"><i></i> Lokale Demo <span class="version">/ 0.3</span></span></header>
+  <main>
+    <section class="intro"><div><p class="eyebrow">SPIEL EINEN AKKORD. BAU DEINEN SONG.</p><h1>Deine Ideen gehen in Schleife<span>.</span></h1><p class="subtitle">Akkord-Pads, vier Spuren und ein gemeinsamer Beat.</p></div><button id="stop" class="stop-button" title="Alle Demo-Bewegungen und Töne stoppen (Escape)"><span>■</span> Alles stoppen <kbd>ESC</kbd></button></section>
+    <section class="panel song-panel" aria-label="Song Looper">
+      <div class="panel-heading"><div><span class="section-number">↻</span><h2>Song Looper</h2><span id="record-state" class="small-badge">BEREIT</span></div><div class="song-files"><button id="song-save" class="text-button">Song speichern ↓</button><button id="song-load" class="text-button">Song laden ↑</button><input id="song-file" type="file" accept=".json,application/json" hidden></div></div>
+      <div class="transport-bar"><button id="loop-play" class="primary">▶ Loop starten</button><button id="loop-record" class="record-button" aria-pressed="false">● Aufnehmen</button><label class="loop-length">LOOP-LÄNGE<select id="loop-bars"><option value="1">1 Takt</option><option value="2" selected>2 Takte</option><option value="4">4 Takte</option><option value="8">8 Takte</option></select></label><button id="metronome" class="secondary" aria-pressed="false">♩ Klick aus</button><span id="loop-position" class="loop-position">1.1</span><button id="song-example" class="secondary">♫ Beispiel-Song</button></div>
+      <div class="looper-tip"><span id="loop-status" role="status">Aufnehmen drücken und Pads spielen. Neue Durchgänge ergänzen deinen Loop.</span><span>4/4 · 1/16 Raster · C-Moll</span></div>
+      <div id="loop-tracks" class="loop-tracks"></div>
+      <div class="looper-bottom"><span id="song-storage">Automatisch in diesem Browser gespeichert.</span><div><button id="loop-undo" class="text-button" disabled>↶ Rückgängig</button><button id="loop-clear" class="text-button">Alle Spuren leeren</button></div></div>
+    </section>
+    <div class="workspace">
+      <section class="panel controller">
+        <div class="panel-heading"><div><span class="section-number">01</span><h2>Launchpad X</h2></div><span id="input-badge" class="small-badge">SIMULATOR</span></div>
+        <div class="device-bar"><button id="connect" class="primary">↗ Launchpad starten</button><button id="programmer" class="secondary" disabled>Programmer-Modus aktivieren</button></div>
+        <div id="midi-controls" class="midi-controls" hidden><label>MIDI-Eingang<select id="midi-input"></select></label><label>MIDI-Ausgang<select id="midi-output"></select></label><button id="disconnect" class="text-button">Trennen / Live-Modus</button></div>
+        <p id="midi-status" class="helper" role="status">Ohne Hardware direkt auf die Pads klicken. Für USB: Chrome oder Edge verwenden.</p>
+        <div class="midi-diagnostics" aria-label="MIDI-Diagnose"><span id="midi-count">0 MIDI-Nachrichten</span><code id="midi-packet">Noch kein Signal</code><span id="midi-hint">Erst „Launchpad starten“, dann ein Pad drücken.</span></div>
+        <div class="launchpad-shell"><div class="launchpad-top"><span>NOVATION <b>↗</b></span><div class="tiny-leds"><i></i><i></i><i></i><i></i></div><span class="device-label">LAUNCHPAD X</span></div><div id="pad-grid" class="pad-grid" aria-label="64 Launchpad Pads"></div><div class="shell-bottom"><span>VELOCITY SENSITIVE · 8 × 8</span><span class="power-dot"></span></div></div>
+        <div id="legend" class="legend"></div>
+        <div class="performance-controls"><label class="tempo"><span>TEMPO</span><div><input id="bpm" type="number" min="40" max="240" step="1" value="120" aria-label="Tempo in BPM"><small>BPM</small></div></label><label class="velocity"><span>ANSCHLAG <b id="velocity-label">100</b></span><input id="velocity" type="range" min="1" max="127" value="100"></label><button id="audio" class="audio-button" aria-pressed="false">♪ Ton einschalten</button></div>
+        <div class="demo-row"><button id="demo" class="secondary">♫ Beispiel-Song</button><span>Ein Pad = ein Akkord. Drums bleiben einzelne Schläge. Halten bestimmt die aufgenommene Länge.</span></div>
+      </section>
+      <div class="right-column">
+        <section class="panel stage-panel"><div class="panel-heading"><div><span class="section-number">02</span><h2>Deine Band</h2></div><span class="small-badge">BEWEGUNGSVORSCHAU</span></div><div class="stage-caption"><span id="band-status">Die Bühne ist bereit.</span><span>3 Bots · 4 Musikspuren</span></div><div id="robots" class="robots"></div><div class="stage-footer"><span class="signal-dot"></span> Schlagzeug · Gitarre · Keyboard. Gesang nur Audio. K1-Adapter offen.</div></section>
+        <section class="panel signal-panel"><div class="panel-heading"><div><span class="section-number">03</span><h2>Signalweg</h2></div><button id="export" class="text-button">Signale exportieren ↗</button></div><div class="signal-route"><span>PAD / LOOP</span><i>→</i><span>ROLLE + AKKORD</span><i>→</i><span>LOKALE BRIDGE</span><i>→</i><span class="muted">BOT-ADAPTER</span></div><div class="signal-stats"><div><span id="event-count">000</span><small>PAD-TRIGGER</small></div><div><span id="bridge-status">…</span><small>BRIDGE</small></div><div><span id="last-latency">—</span><small>HTTP RTT · MS</small></div></div><pre id="command-preview" aria-label="Letztes Robotersignal">// Spiele ein Pad, um das Robotersignal zu sehen.</pre><div class="log-heading"><span>LIVE-EVENTS</span><span id="log-state">Warte auf Eingabe</span></div><ol id="event-log" class="event-log" aria-live="polite"></ol></section>
+      </div>
+    </div>
+    <footer class="page-footer"><span>Spielen. Aufnehmen. Weiterbauen.</span><span>Akkord → Rolle &nbsp; / &nbsp; Anschlag → Intensität &nbsp; / &nbsp; BPM → gemeinsamer Takt</span></footer>
+    <details class="setup"><summary>Launchpad anschließen &amp; Robotersignale nutzen</summary><div><p>Launchpad X per USB anschließen. „Launchpad starten“ wählen und Browser-MIDI inklusive SysEx erlauben. Die Demo bevorzugt die zweite MIDI-Schnittstelle und aktiviert den Programmer-Modus. Bei Bedarf MIDIIN2 (LPX MIDI) und MIDIOUT2 (LPX MIDI) manuell auswählen und „Programmer-Modus aktivieren“ drücken. Beim Trennen kehrt es in den Live-Modus zurück. Ohne SysEx: Programmer-Modus am Gerät manuell einstellen.</p><p>Die MIDI-Diagnose zählt jedes empfangene Paket. Bei 0 Paketen den Eingang prüfen; bei Noten außerhalb des Rasters den Programmer-Modus aktivieren. Nur eine Demo-Seite gleichzeitig für MIDI verwenden. Vier Bereiche: oben links Schlagzeug, oben rechts Gitarre, unten links Keyboard, unten rechts Gesang. Gesang ist ein synthetischer Demo-Ton. „Ton einschalten“ aktiviert die lokale Audio-Vorschau. Das Tempo wird manuell eingestellt.</p><p>Im Repository: <code>npm.cmd run robot -- keyboard</code> zeigt die Signale für einen virtuellen Bot. Jede Rolle hat einen lokalen SSE-Kanal unter <code>/api/robots/ROLLE/events</code>. Das ist noch keine K1-Steuerung. „Alles stoppen“ ist ein Software-Stopp für die Demo.</p><p><a href="https://userguides.novationmusic.com/hc/en-gb/articles/24001489325330-MIDI-on-Launchpad-X" target="_blank" rel="noreferrer">Novation MIDI-Referenz ↗</a></p></div></details>
+  </main>
+  <div id="notice" class="notice" role="status" hidden></div>
+</body>
+</html>

@@ -1,0 +1,282 @@
+{
+  "schema_version": 1,
+  "bpm": 110,
+  "bars": 2,
+  "steps_per_beat": 4,
+  "beats_per_bar": 4,
+  "events": [
+    {
+      "id": "pad-11-step-0",
+      "note": 11,
+      "velocity": 86,
+      "role": "keyboard",
+      "step": 0,
+      "duration_steps": 8
+    },
+    {
+      "id": "pad-15-step-0",
+      "note": 15,
+      "velocity": 42,
+      "role": "vocals",
+      "step": 0,
+      "duration_steps": 6
+    },
+    {
+      "id": "pad-51-step-0",
+      "note": 51,
+      "velocity": 106,
+      "role": "drums",
+      "step": 0,
+      "duration_steps": 1
+    },
+    {
+      "id": "pad-53-step-0",
+      "note": 53,
+      "velocity": 50,
+      "role": "drums",
+      "step": 0,
+      "duration_steps": 1
+    },
+    {
+      "id": "pad-53-step-2",
+      "note": 53,
+      "velocity": 50,
+      "role": "drums",
+      "step": 2,
+      "duration_steps": 1
+    },
+    {
+      "id": "pad-55-step-2",
+      "note": 55,
+      "velocity": 72,
+      "role": "guitar",
+      "step": 2,
+      "duration_steps": 6
+    },
+    {
+      "id": "pad-52-step-4",
+      "note": 52,
+      "velocity": 92,
+      "role": "drums",
+      "step": 4,
+      "duration_steps": 1
+    },
+    {
+      "id": "pad-53-step-4",
+      "note": 53,
+      "velocity": 50,
+      "role": "drums",
+      "step": 4,
+      "duration_steps": 1
+    },
+    {
+      "id": "pad-53-step-6",
+      "note": 53,
+      "velocity": 50,
+      "role": "drums",
+      "step": 6,
+      "duration_steps": 1
+    },
+    {
+      "id": "pad-12-step-8",
+      "note": 12,
+      "velocity": 86,
+      "role": "keyboard",
+      "step": 8,
+      "duration_steps": 8
+    },
+    {
+      "id": "pad-51-step-8",
+      "note": 51,
+      "velocity": 106,
+      "role": "drums",
+      "step": 8,
+      "duration_steps": 1
+    },
+    {
+      "id": "pad-53-step-8",
+      "note": 53,
+      "velocity": 50,
+      "role": "drums",
+      "step": 8,
+      "duration_steps": 1
+    },
+    {
+      "id": "pad-53-step-10",
+      "note": 53,
+      "velocity": 50,
+      "role": "drums",
+      "step": 10,
+      "duration_steps": 1
+    },
+    {
+      "id": "pad-56-step-10",
+      "note": 56,
+      "velocity": 72,
+      "role": "guitar",
+      "step": 10,
+      "duration_steps": 6
+    },
+    {
+      "id": "pad-52-step-12",
+      "note": 52,
+      "velocity": 92,
+      "role": "drums",
+      "step": 12,
+      "duration_steps": 1
+    },
+    {
+      "id": "pad-53-step-12",
+      "note": 53,
+      "velocity": 50,
+      "role": "drums",
+      "step": 12,
+      "duration_steps": 1
+    },
+    {
+      "id": "pad-53-step-14",
+      "note": 53,
+      "velocity": 50,
+      "role": "drums",
+      "step": 14,
+      "duration_steps": 1
+    },
+    {
+      "id": "pad-13-step-16",
+      "note": 13,
+      "velocity": 86,
+      "role": "keyboard",
+      "step": 16,
+      "duration_steps": 8
+    },
+    {
+      "id": "pad-17-step-16",
+      "note": 17,
+      "velocity": 42,
+      "role": "vocals",
+      "step": 16,
+      "duration_steps": 6
+    },
+    {
+      "id": "pad-51-step-16",
+      "note": 51,
+      "velocity": 106,
+      "role": "drums",
+      "step": 16,
+      "duration_steps": 1
+    },
+    {
+      "id": "pad-53-step-16",
+      "note": 53,
+      "velocity": 50,
+      "role": "drums",
+      "step": 16,
+      "duration_steps": 1
+    },
+    {
+      "id": "pad-53-step-18",
+      "note": 53,
+      "velocity": 50,
+      "role": "drums",
+      "step": 18,
+      "duration_steps": 1
+    },
+    {
+      "id": "pad-57-step-18",
+      "note": 57,
+      "velocity": 72,
+      "role": "guitar",
+      "step": 18,
+      "duration_steps": 6
+    },
+    {
+      "id": "pad-52-step-20",
+      "note": 52,
+      "velocity": 92,
+      "role": "drums",
+      "step": 20,
+      "duration_steps": 1
+    },
+    {
+      "id": "pad-53-step-20",
+      "note": 53,
+      "velocity": 50,
+      "role": "drums",
+      "step": 20,
+      "duration_steps": 1
+    },
+    {
+      "id": "pad-53-step-22",
+      "note": 53,
+      "velocity": 50,
+      "role": "drums",
+      "step": 22,
+      "duration_steps": 1
+    },
+    {
+      "id": "pad-14-step-24",
+      "note": 14,
+      "velocity": 86,
+      "role": "keyboard",
+      "step": 24,
+      "duration_steps": 8
+    },
+    {
+      "id": "pad-51-step-24",
+      "note": 51,
+      "velocity": 106,
+      "role": "drums",
+      "step": 24,
+      "duration_steps": 1
+    },
+    {
+      "id": "pad-53-step-24",
+      "note": 53,
+      "velocity": 50,
+      "role": "drums",
+      "step": 24,
+      "duration_steps": 1
+    },
+    {
+      "id": "pad-53-step-26",
+      "note": 53,
+      "velocity": 50,
+      "role": "drums",
+      "step": 26,
+      "duration_steps": 1
+    },
+    {
+      "id": "pad-58-step-26",
+      "note": 58,
+      "velocity": 72,
+      "role": "guitar",
+      "step": 26,
+      "duration_steps": 6
+    },
+    {
+      "id": "pad-52-step-28",
+      "note": 52,
+      "velocity": 92,
+      "role": "drums",
+      "step": 28,
+      "duration_steps": 1
+    },
+    {
+      "id": "pad-53-step-28",
+      "note": 53,
+      "velocity": 50,
+      "role": "drums",
+      "step": 28,
+      "duration_steps": 1
+    },
+    {
+      "id": "pad-53-step-30",
+      "note": 53,
+      "velocity": 50,
+      "role": "drums",
+      "step": 30,
+      "duration_steps": 1
+    }
+  ],
+  "muted": []
+}

@@ -1,0 +1,14 @@
+{
+  "name": "launchpad-robot-band",
+  "version": "0.3.0",
+  "private": true,
+  "description": "Launchpad X live input, robot role routing and browser simulator",
+  "type": "module",
+  "scripts": {
+    "start": "node src/server.js",
+    "demo": "node src/server.js",
+    "robot": "node src/mock-robot.js",
+    "test": "node --test"
+  },
+  "engines": { "node": ">=22" }
+}
