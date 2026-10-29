@@ -1,6 +1,24 @@
 {
     "configurations": [
         {
+            "name": "K1: Robot Band",
+            "type": "cppvsdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/external/BHumanCodeRelease/Build/Windows/SimRobot/Develop/SimRobot.exe",
+            "args": ["${workspaceFolder}/simulations/robot-band/RobotBand.ros3"],
+            "cwd": "${workspaceFolder}/external/BHumanCodeRelease",
+            "preLaunchTask": "Robot Band: Szene bauen"
+        },
+        {
+            "name": "K1: SimRobot (Develop)",
+            "type": "cppvsdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/external/BHumanCodeRelease/Build/Windows/SimRobot/Develop/SimRobot.exe",
+            "args": ["${workspaceFolder}/external/BHumanCodeRelease/Config/Scenes/K1/RobotFast.ros3"],
+            "cwd": "${workspaceFolder}/external/BHumanCodeRelease",
+            "preLaunchTask": "B-Human: Simulator bauen"
+        },
+        {
             "name": "Containers: Node.js Launch",
             "type": "docker",
             "request": "launch",

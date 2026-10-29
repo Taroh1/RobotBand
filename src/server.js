@@ -13,6 +13,7 @@ export function createDemoServer({ minInterval = 120, assignments = DEFAULT_ROLE
   const routing = validateAssignments(assignments);
   const streams = new Map(ROBOTS.map(robot => [robot.id, new Set()]));
   const sharedStreams = new Set();
+  const simrobotStreams = new Set();
   const recent = [];
   const lastTrigger = new Map();
   const timers = new Map();
@@ -54,12 +55,12 @@ export function createDemoServer({ minInterval = 120, assignments = DEFAULT_ROLE
     catch { return json(400, { error: 'Invalid URL' }); }
     try {
       if (req.method === 'GET' && pathname === '/api/status') return json(200, {
-        mode: 'simulation', min_interval_ms: minInterval, physical_robots: false,
+        service: 'robot-band', api_version: 1, mode: 'simulation', min_interval_ms: minInterval, physical_robots: false,
         roles: roleIds.map(role => ({ robot: role, role, robot_id: routing[role],
           subscribers: streams.get(routing[role])?.size ?? 0 })),
         robots: ROBOTS.map(robot => ({ robot_id: robot.id, label: robot.label,
           roles: rolesForRobot(robot.id, routing), subscribers: streams.get(robot.id).size })),
-        shared_subscribers: sharedStreams.size, events: recent.length
+        shared_subscribers: sharedStreams.size, simrobot: { connected: simrobotStreams.size > 0, subscribers: simrobotStreams.size }, events: recent.length
       });
       if (req.method === 'GET' && pathname === '/api/events') return json(200, recent);
       const roleMatch = /^\/api\/robots\/(bot-[123]|drums|guitar|keyboard|vocals)\/events$/.exec(pathname);
@@ -70,8 +71,9 @@ export function createDemoServer({ minInterval = 120, assignments = DEFAULT_ROLE
         res.write(': connected; live events only, no replay\n\n');
         const clients = roleMatch ? streams.get(streamRobot.id) : sharedStreams;
         clients.add(res);
-        const heartbeat = setInterval(() => res.write(': heartbeat\n\n'), 15000);
-        req.on('close', () => { clients.delete(res); clearInterval(heartbeat); });
+        if (req.headers['x-robotband-client'] === 'simrobot-v1') simrobotStreams.add(res);
+        const heartbeat = setInterval(() => res.write(': heartbeat\n\n'), 1000);
+        req.on('close', () => { clients.delete(res); simrobotStreams.delete(res); clearInterval(heartbeat); });
         return;
       }
       if (req.method === 'POST' && (pathname === '/api/command' || pathname === '/api/stop')) {

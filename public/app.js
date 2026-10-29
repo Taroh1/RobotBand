@@ -249,8 +249,14 @@ function panic(showNotice = false) {
 
 $('stop').onclick = () => panic(true);
 document.addEventListener('keydown', event => { if (event.code === 'Escape') panic(true); });
-window.addEventListener('blur', () => { if (held.size || transport.playing) panic(); });
-document.addEventListener('visibilitychange', () => { if (document.hidden) panic(); });
+function leavePerformanceWindow() {
+  // Release manual gates, but allow a loop to drive SimRobot while its window
+  // is in front. Page close, USB loss and explicit stop still stop everything.
+  for (const { note, source } of [...held.values()]) release(note, source);
+  if (!$('background-play').checked && transport.playing) panic();
+}
+window.addEventListener('blur', leavePerformanceWindow);
+document.addEventListener('visibilitychange', () => { if (document.hidden) leavePerformanceWindow(); });
 window.addEventListener('pagehide', () => {
   browserStream.close();
   navigator.sendBeacon('/api/stop', new Blob(['{}'], { type: 'application/json' }));
@@ -671,8 +677,13 @@ async function checkBridge() {
   try {
     const response = await fetch('/api/status', { signal: AbortSignal.timeout(2000) });
     if (!response.ok) throw new Error('Bridge unavailable');
+    const status = await response.json();
     $('bridge-status').textContent = 'Bereit';
-  } catch { $('bridge-status').textContent = 'Offline'; }
+    $('simrobot-status').textContent = status.simrobot?.connected ? 'SimRobot verbunden' : 'SimRobot nicht verbunden';
+  } catch {
+    $('bridge-status').textContent = 'Offline';
+    $('simrobot-status').textContent = 'SimRobot nicht verbunden';
+  }
 }
 checkBridge();
 setInterval(checkBridge, 5000);

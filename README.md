@@ -1,5 +1,12 @@
 # Robot Band · Chord & Loop Studio
 
+Booster-K1-Entwicklungsumgebung und Simulator auf Windows: [Einrichtung und Start](docs/k1-setup.md).
+
+Eigene SimRobot-Bühne mit drei K1 und Band-Bewegungen: [Robot-Band-Szene](simulations/robot-band/README.md).
+
+Website und Live-Simulator gemeinsam starten: `npm.cmd run band`.
+Für einen Windows-Laptop: [komplettes Installationspaket](installer/README.md).
+
 Den vorhandenen lokalen Codex-Chat auf einem zweiten Gerät weiterführen: [verschlüsseltes Übertragungspaket und Importanleitung](chat-transfer/README.md). Der Schlüssel wird separat aufbewahrt.
 
 Lokales Musikstudio für Launchpad X und eine Band mit **drei Bots**. Melodische Pads spielen vollständige Akkorde; Schlagzeug-Pads einzelne Sounds. Mit vier Loop-Spuren kannst du Beats, Akkorde und synthetische Gesangsharmonien übereinanderlegen. Musikrollen und physische Roboter sind getrennt: Eine zusätzliche Audiospur benötigt keinen vierten Bot.
@@ -31,7 +38,7 @@ Die drei melodischen Quadranten bieten dieselbe Akkordpalette: Cm, Ab, Eb, Bb, F
 
 Der Looper verwendet 4/4 und 16tel mit maximal 512 Pad-Ereignissen. Die Dauer melodischer Loop-Noten folgt der aufgenommenen Haltedauer, maximal einer Loop-Länge. Schlagzeug klingt unabhängig von der Haltedauer als kurzer Schlag aus. Der Synthesizer begrenzt gleichzeitige Stimmen. Das ist ein Loop-Skizzenbuch; es gibt noch keine mehrteilige Arrangement-Zeitleiste oder WAV-/MP3-Aufnahme. **Song speichern** speichert Noten, Tempo, Länge und Mutes; **Signale exportieren** speichert die separate Roboter-Diagnose.
 
-Die Wiedergabe plant Audio mit kurzem Vorlauf auf der AudioContext-Uhr. Benutzeroberfläche und Roboter-HTTP-Kommandos folgen zur Spielzeit, sind aber keine harte Echtzeitsteuerung. Beim Verlassen des Tabs, Fokusverlust, USB-Abbruch oder Software-Stopp endet der Transport; aufgenommene Noten bleiben erhalten. Nur eine Controller-Seite gleichzeitig verwenden.
+Die Wiedergabe plant Audio mit kurzem Vorlauf auf der AudioContext-Uhr. Benutzeroberfläche und Roboter-HTTP-Kommandos folgen zur Spielzeit, sind aber keine harte Echtzeitsteuerung. Mit „Loops beim Fensterwechsel weiterspielen“ bleibt ein Loop beim Wechsel zu SimRobot aktiv. Ohne diese Option stoppt er beim Fokus-/Tabwechsel. Manuell gehaltene Pads werden beim Fensterwechsel losgelassen. Beim Schließen der Seite, USB-Abbruch oder Software-Stopp endet der Transport; aufgenommene Noten bleiben erhalten. Nur eine Controller-Seite gleichzeitig verwenden.
 
 ## Starten
 

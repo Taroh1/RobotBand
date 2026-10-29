@@ -2,6 +2,38 @@
 	"version": "2.0.0",
 	"tasks": [
 		{
+			"label": "Robot Band: Szene bauen",
+			"type": "process",
+			"command": "powershell.exe",
+			"args": ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "${workspaceFolder}/tools/bhuman.ps1", "-Action", "Build", "-Scene", "Band"],
+			"problemMatcher": ["$msCompile"],
+			"group": "build"
+		},
+		{
+			"label": "Robot Band: Szene starten",
+			"type": "process",
+			"command": "powershell.exe",
+			"args": ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "${workspaceFolder}/tools/bhuman.ps1", "-Action", "Run", "-Scene", "Band"],
+			"dependsOn": ["Robot Band: Szene bauen"],
+			"problemMatcher": []
+		},
+		{
+			"label": "B-Human: Simulator bauen",
+			"type": "process",
+			"command": "powershell.exe",
+			"args": ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "${workspaceFolder}/tools/bhuman.ps1", "-Action", "Build"],
+			"problemMatcher": ["$msCompile"],
+			"group": "build"
+		},
+		{
+			"label": "B-Human: Simulator starten",
+			"type": "process",
+			"command": "powershell.exe",
+			"args": ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "${workspaceFolder}/tools/bhuman.ps1", "-Action", "Run"],
+			"dependsOn": ["B-Human: Simulator bauen"],
+			"problemMatcher": []
+		},
+		{
 			"type": "docker-build",
 			"label": "docker-build",
 			"platform": "node",

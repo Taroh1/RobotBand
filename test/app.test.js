@@ -75,6 +75,7 @@ async function appHarness(t, savedSong) {
     element.hidden = /\bhidden\b/.test(match[2]);
   }
   document.getElementById('loop-bars').value = '2';
+  document.getElementById('background-play').checked = true;
   const window = new FakeElement('window', allElements);
   window.location = { reload() {} };
   const store = new Map(savedSong ? [[storageKey, JSON.stringify(savedSong)]] : []);
@@ -133,6 +134,8 @@ async function appHarness(t, savedSong) {
     track: index => document.getElementById('loop-tracks').children[index],
     song: () => JSON.parse(store.get(storageKey)),
     requests, audioCalls, stopped, blobs, eventSources, flush,
+    blur() { window.emit('blur'); },
+    hide() { document.hidden = true; document.emit('visibilitychange'); },
     get audio() { return audioInstance; },
     setTime(value) { audioNow = value; },
     async advance(seconds) { audioNow += seconds; t.mock.timers.tick(Math.round(seconds * 1000)); await flush(); },
@@ -184,6 +187,20 @@ test('an unassigned vocal SSE event never creates or animates a fourth robot', a
   assert.equal(app.element('robot-bot-3').querySelector('.robot-action').textContent, 'keys_low');
   assert.ok(!app.element('robot-bot-1').classList.contains('live'));
   assert.ok(!app.element('robot-bot-2').classList.contains('live'));
+});
+
+test('loops keep driving SimRobot across window changes; opting out and stop still cancel playback', async t => {
+  const app = await appHarness(t);
+  await app.element('song-example').onclick();
+  app.blur();
+  app.hide();
+  await app.flush();
+  assert.match(app.element('loop-play').textContent, /stoppen/);
+  app.element('background-play').checked = false;
+  app.blur();
+  await app.flush();
+  assert.match(app.element('loop-play').textContent, /starten/);
+  assert.ok(app.requests.some(request => request.url === '/api/stop'));
 });
 
 test('example song enables audio, schedules playback and stops all future loop audio', async t => {

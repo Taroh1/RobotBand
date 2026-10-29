@@ -1,0 +1,194 @@
+<Simulation>
+<Include href="../../external/BHumanCodeRelease/Config/Scenes/Includes/K1/K1.rsi3"/>
+<Surface name="floor" albedo="rgb(16, 21, 31)" roughness="0.75" ambient="0.65"/>
+<Surface name="stage" albedo="rgb(35, 45, 60)" roughness="0.75" ambient="0.65"/>
+<Surface name="rim" albedo="rgb(18, 25, 35)" roughness="0.75" ambient="0.65"/>
+<Surface name="black" albedo="rgb(8, 13, 20)" roughness="0.75" ambient="0.65"/>
+<Surface name="steel" albedo="rgb(89, 104, 121)" roughness="0.75" ambient="0.65"/>
+<Surface name="white" albedo="rgb(230, 237, 243)" roughness="0.75" ambient="0.65"/>
+<Surface name="mint" albedo="rgb(84, 229, 192)" roughness="0.75" ambient="0.65"/>
+<Surface name="gold" albedo="rgb(255, 190, 92)" roughness="0.75" ambient="0.65"/>
+<Surface name="purple" albedo="rgb(184, 154, 255)" roughness="0.75" ambient="0.65"/>
+<Surface name="red" albedo="rgb(232, 94, 87)" roughness="0.75" ambient="0.65"/>
+<Surface name="wood" albedo="rgb(185, 121, 65)" roughness="0.75" ambient="0.65"/>
+<Surface name="drum" albedo="rgb(203, 112, 71)" roughness="0.75" ambient="0.65"/>
+<Surface name="keys" albedo="rgb(246, 242, 232)" roughness="0.75" ambient="0.65"/>
+<Scene name="RobotBand" controller="RobotBandController" stepLength="0.002s" gravity="0m/s^2" bodyCollisions="false" color="rgb(17,22,32)">
+<PointLight x="3m" y="0m" z="5m" intensity="2.2" color="rgb(235,244,255)"/>
+<PointLight x="-1m" y="3m" z="2.5m" intensity="1.1" color="rgb(100,255,214)"/>
+<PointLight x="-1m" y="-3m" z="2.5m" intensity="1.0" color="rgb(190,155,255)"/>
+<Compound name="Stage">
+<BoxGeometry name="Ground" depth="18m" width="18m" height="0.1m"><Translation z="-0.06m"/></BoxGeometry>
+<BoxAppearance name="StudioFloor" depth="18m" width="18m" height="0.06m"><Translation x="0m" y="0m" z="-0.02m"/><Surface ref="floor"/></BoxAppearance>
+<BoxAppearance name="Platform" depth="4.7m" width="7.7m" height="0.2m"><Translation x="0m" y="0m" z="0.1m"/><Surface ref="stage"/></BoxAppearance>
+<BoxAppearance name="FrontFascia" depth="0.055m" width="7.7m" height="0.24m"><Translation x="2.36m" y="0m" z="0.12m"/><Surface ref="rim"/></BoxAppearance>
+<BoxAppearance name="DrummerRiser" depth="0.85m" width="0.9m" height="0.22m"><Translation x="-0.55m" y="1.85m" z="0.31m"/><Surface ref="rim"/></BoxAppearance>
+<BoxAppearance name="DrummerRiserEdge" depth="0.016m" width="0.9m" height="0.015m"><Translation x="-0.116m" y="1.85m" z="0.424m"/><Surface ref="gold"/></BoxAppearance>
+<BoxAppearance name="MintEdge" depth="0.018m" width="7.72m" height="0.025m"><Translation x="2.395m" y="0m" z="0.235m"/><Surface ref="mint"/></BoxAppearance>
+<BoxAppearance name="RearWall" depth="0.16m" width="7.7m" height="2.7m"><Translation x="-2.35m" y="0m" z="1.55m"/><Surface ref="black"/></BoxAppearance>
+<ComplexAppearance name="RobotBandBackdrop"><Translation x="-2.255m" y="0m" z="1.9m"/><Surface albedo="rgb(255,255,255)" ambient="1" roughness="1" texture="assets/backdrop.png"/><Vertices>0 -3.425 -0.74 0 3.425 -0.74 0 3.425 0.74 0 -3.425 0.74</Vertices><TexCoords>0 0 1 0 1 1 0 1</TexCoords><Quads>0 1 2 3</Quads></ComplexAppearance>
+<BoxAppearance name="BackdropLED0" depth="0.018m" width="0.055m" height="0.46m"><Translation x="-2.24m" y="-3.5m" z="0.63m"/><Surface ref="purple"/></BoxAppearance>
+<BoxAppearance name="BackdropLED1" depth="0.018m" width="0.055m" height="0.525m"><Translation x="-2.24m" y="-3.23m" z="0.63m"/><Surface ref="mint"/></BoxAppearance>
+<BoxAppearance name="BackdropLED2" depth="0.018m" width="0.055m" height="0.5900000000000001m"><Translation x="-2.24m" y="-2.96m" z="0.63m"/><Surface ref="purple"/></BoxAppearance>
+<BoxAppearance name="BackdropLED3" depth="0.018m" width="0.055m" height="0.655m"><Translation x="-2.24m" y="-2.69m" z="0.63m"/><Surface ref="mint"/></BoxAppearance>
+<BoxAppearance name="BackdropLED4" depth="0.018m" width="0.055m" height="0.72m"><Translation x="-2.24m" y="-2.42m" z="0.63m"/><Surface ref="purple"/></BoxAppearance>
+<BoxAppearance name="BackdropLED5" depth="0.018m" width="0.055m" height="0.46m"><Translation x="-2.24m" y="-2.15m" z="0.63m"/><Surface ref="mint"/></BoxAppearance>
+<BoxAppearance name="BackdropLED6" depth="0.018m" width="0.055m" height="0.525m"><Translation x="-2.24m" y="-1.88m" z="0.63m"/><Surface ref="purple"/></BoxAppearance>
+<BoxAppearance name="BackdropLED7" depth="0.018m" width="0.055m" height="0.5900000000000001m"><Translation x="-2.24m" y="-1.6099999999999999m" z="0.63m"/><Surface ref="mint"/></BoxAppearance>
+<BoxAppearance name="BackdropLED8" depth="0.018m" width="0.055m" height="0.655m"><Translation x="-2.24m" y="-1.3399999999999999m" z="0.63m"/><Surface ref="purple"/></BoxAppearance>
+<BoxAppearance name="BackdropLED9" depth="0.018m" width="0.055m" height="0.72m"><Translation x="-2.24m" y="-1.0699999999999998m" z="0.63m"/><Surface ref="mint"/></BoxAppearance>
+<BoxAppearance name="BackdropLED10" depth="0.018m" width="0.055m" height="0.46m"><Translation x="-2.24m" y="-0.7999999999999998m" z="0.63m"/><Surface ref="purple"/></BoxAppearance>
+<BoxAppearance name="BackdropLED11" depth="0.018m" width="0.055m" height="0.525m"><Translation x="-2.24m" y="-0.5299999999999998m" z="0.63m"/><Surface ref="mint"/></BoxAppearance>
+<BoxAppearance name="BackdropLED12" depth="0.018m" width="0.055m" height="0.5900000000000001m"><Translation x="-2.24m" y="-0.2599999999999998m" z="0.63m"/><Surface ref="purple"/></BoxAppearance>
+<BoxAppearance name="BackdropLED13" depth="0.018m" width="0.055m" height="0.655m"><Translation x="-2.24m" y="0.010000000000000231m" z="0.63m"/><Surface ref="mint"/></BoxAppearance>
+<BoxAppearance name="BackdropLED14" depth="0.018m" width="0.055m" height="0.72m"><Translation x="-2.24m" y="0.28000000000000025m" z="0.63m"/><Surface ref="purple"/></BoxAppearance>
+<BoxAppearance name="BackdropLED15" depth="0.018m" width="0.055m" height="0.46m"><Translation x="-2.24m" y="0.5500000000000007m" z="0.63m"/><Surface ref="mint"/></BoxAppearance>
+<BoxAppearance name="BackdropLED16" depth="0.018m" width="0.055m" height="0.525m"><Translation x="-2.24m" y="0.8200000000000003m" z="0.63m"/><Surface ref="purple"/></BoxAppearance>
+<BoxAppearance name="BackdropLED17" depth="0.018m" width="0.055m" height="0.5900000000000001m"><Translation x="-2.24m" y="1.0899999999999999m" z="0.63m"/><Surface ref="mint"/></BoxAppearance>
+<BoxAppearance name="BackdropLED18" depth="0.018m" width="0.055m" height="0.655m"><Translation x="-2.24m" y="1.3600000000000003m" z="0.63m"/><Surface ref="purple"/></BoxAppearance>
+<BoxAppearance name="BackdropLED19" depth="0.018m" width="0.055m" height="0.72m"><Translation x="-2.24m" y="1.6300000000000008m" z="0.63m"/><Surface ref="mint"/></BoxAppearance>
+<BoxAppearance name="BackdropLED20" depth="0.018m" width="0.055m" height="0.46m"><Translation x="-2.24m" y="1.9000000000000004m" z="0.63m"/><Surface ref="purple"/></BoxAppearance>
+<BoxAppearance name="BackdropLED21" depth="0.018m" width="0.055m" height="0.525m"><Translation x="-2.24m" y="2.17m" z="0.63m"/><Surface ref="mint"/></BoxAppearance>
+<BoxAppearance name="BackdropLED22" depth="0.018m" width="0.055m" height="0.5900000000000001m"><Translation x="-2.24m" y="2.4400000000000004m" z="0.63m"/><Surface ref="purple"/></BoxAppearance>
+<BoxAppearance name="BackdropLED23" depth="0.018m" width="0.055m" height="0.655m"><Translation x="-2.24m" y="2.710000000000001m" z="0.63m"/><Surface ref="mint"/></BoxAppearance>
+<BoxAppearance name="BackdropLED24" depth="0.018m" width="0.055m" height="0.72m"><Translation x="-2.24m" y="2.9800000000000004m" z="0.63m"/><Surface ref="purple"/></BoxAppearance>
+<BoxAppearance name="BackdropLED25" depth="0.018m" width="0.055m" height="0.46m"><Translation x="-2.24m" y="3.25m" z="0.63m"/><Surface ref="mint"/></BoxAppearance>
+<BoxAppearance name="BackdropLED26" depth="0.018m" width="0.055m" height="0.525m"><Translation x="-2.24m" y="3.5200000000000005m" z="0.63m"/><Surface ref="purple"/></BoxAppearance>
+<CylinderAppearance name="Tower-3.57" radius="0.045m" height="2.64m"><Translation x="-1.65m" y="-3.57m" z="1.52m"/><Surface ref="steel"/></CylinderAppearance>
+<BoxAppearance name="TowerFoot-3.57" depth="0.36m" width="0.36m" height="0.1m"><Translation x="-1.65m" y="-3.57m" z="0.25m"/><Surface ref="black"/></BoxAppearance>
+<CylinderAppearance name="Tower3.57" radius="0.045m" height="2.64m"><Translation x="-1.65m" y="3.57m" z="1.52m"/><Surface ref="steel"/></CylinderAppearance>
+<BoxAppearance name="TowerFoot3.57" depth="0.36m" width="0.36m" height="0.1m"><Translation x="-1.65m" y="3.57m" z="0.25m"/><Surface ref="black"/></BoxAppearance>
+<BoxAppearance name="LightingTruss" depth="0.1m" width="7.25m" height="0.1m"><Translation x="-1.65m" y="0m" z="2.82m"/><Surface ref="steel"/></BoxAppearance>
+<BoxAppearance name="LightHousing0" depth="0.23m" width="0.22m" height="0.19m"><Translation x="-1.55m" y="-3m" z="2.65m"/><Surface ref="black"/></BoxAppearance>
+<CylinderAppearance name="LightLens0" radius="0.073m" height="0.025m"><Translation x="-1.42m" y="-3m" z="2.59m"/><Rotation y="65degree"/><Surface ref="mint"/></CylinderAppearance>
+<BoxAppearance name="LightHousing1" depth="0.23m" width="0.22m" height="0.19m"><Translation x="-1.55m" y="-2m" z="2.65m"/><Surface ref="black"/></BoxAppearance>
+<CylinderAppearance name="LightLens1" radius="0.073m" height="0.025m"><Translation x="-1.42m" y="-2m" z="2.59m"/><Rotation y="65degree"/><Surface ref="gold"/></CylinderAppearance>
+<BoxAppearance name="LightHousing2" depth="0.23m" width="0.22m" height="0.19m"><Translation x="-1.55m" y="-1m" z="2.65m"/><Surface ref="black"/></BoxAppearance>
+<CylinderAppearance name="LightLens2" radius="0.073m" height="0.025m"><Translation x="-1.42m" y="-1m" z="2.59m"/><Rotation y="65degree"/><Surface ref="mint"/></CylinderAppearance>
+<BoxAppearance name="LightHousing3" depth="0.23m" width="0.22m" height="0.19m"><Translation x="-1.55m" y="0m" z="2.65m"/><Surface ref="black"/></BoxAppearance>
+<CylinderAppearance name="LightLens3" radius="0.073m" height="0.025m"><Translation x="-1.42m" y="0m" z="2.59m"/><Rotation y="65degree"/><Surface ref="gold"/></CylinderAppearance>
+<BoxAppearance name="LightHousing4" depth="0.23m" width="0.22m" height="0.19m"><Translation x="-1.55m" y="1m" z="2.65m"/><Surface ref="black"/></BoxAppearance>
+<CylinderAppearance name="LightLens4" radius="0.073m" height="0.025m"><Translation x="-1.42m" y="1m" z="2.59m"/><Rotation y="65degree"/><Surface ref="mint"/></CylinderAppearance>
+<BoxAppearance name="LightHousing5" depth="0.23m" width="0.22m" height="0.19m"><Translation x="-1.55m" y="2m" z="2.65m"/><Surface ref="black"/></BoxAppearance>
+<CylinderAppearance name="LightLens5" radius="0.073m" height="0.025m"><Translation x="-1.42m" y="2m" z="2.59m"/><Rotation y="65degree"/><Surface ref="gold"/></CylinderAppearance>
+<BoxAppearance name="LightHousing6" depth="0.23m" width="0.22m" height="0.19m"><Translation x="-1.55m" y="3m" z="2.65m"/><Surface ref="black"/></BoxAppearance>
+<CylinderAppearance name="LightLens6" radius="0.073m" height="0.025m"><Translation x="-1.42m" y="3m" z="2.59m"/><Rotation y="65degree"/><Surface ref="mint"/></CylinderAppearance>
+<BoxAppearance name="PA-3.29" depth="0.48m" width="0.47m" height="1.12m"><Translation x="1.05m" y="-3.29m" z="0.77m"/><Surface ref="black"/></BoxAppearance>
+<CylinderAppearance name="Woofer-3.29_0.49" radius="0.16m" height="0.015m"><Translation x="1.299m" y="-3.29m" z="0.49m"/><Rotation y="90degree"/><Surface ref="steel"/></CylinderAppearance>
+<CylinderAppearance name="Cone-3.29_0.49" radius="0.135m" height="0.02m"><Translation x="1.31m" y="-3.29m" z="0.49m"/><Rotation y="90degree"/><Surface ref="rim"/></CylinderAppearance>
+<SphereAppearance name="DustCap-3.29_0.49" radius="0.042m"><Translation x="1.328m" y="-3.29m" z="0.49m"/><Surface ref="black"/></SphereAppearance>
+<CylinderAppearance name="Woofer-3.29_0.93" radius="0.16m" height="0.015m"><Translation x="1.299m" y="-3.29m" z="0.93m"/><Rotation y="90degree"/><Surface ref="steel"/></CylinderAppearance>
+<CylinderAppearance name="Cone-3.29_0.93" radius="0.135m" height="0.02m"><Translation x="1.31m" y="-3.29m" z="0.93m"/><Rotation y="90degree"/><Surface ref="rim"/></CylinderAppearance>
+<SphereAppearance name="DustCap-3.29_0.93" radius="0.042m"><Translation x="1.328m" y="-3.29m" z="0.93m"/><Surface ref="black"/></SphereAppearance>
+<BoxAppearance name="PA3.29" depth="0.48m" width="0.47m" height="1.12m"><Translation x="1.05m" y="3.29m" z="0.77m"/><Surface ref="black"/></BoxAppearance>
+<CylinderAppearance name="Woofer3.29_0.49" radius="0.16m" height="0.015m"><Translation x="1.299m" y="3.29m" z="0.49m"/><Rotation y="90degree"/><Surface ref="steel"/></CylinderAppearance>
+<CylinderAppearance name="Cone3.29_0.49" radius="0.135m" height="0.02m"><Translation x="1.31m" y="3.29m" z="0.49m"/><Rotation y="90degree"/><Surface ref="rim"/></CylinderAppearance>
+<SphereAppearance name="DustCap3.29_0.49" radius="0.042m"><Translation x="1.328m" y="3.29m" z="0.49m"/><Surface ref="black"/></SphereAppearance>
+<CylinderAppearance name="Woofer3.29_0.93" radius="0.16m" height="0.015m"><Translation x="1.299m" y="3.29m" z="0.93m"/><Rotation y="90degree"/><Surface ref="steel"/></CylinderAppearance>
+<CylinderAppearance name="Cone3.29_0.93" radius="0.135m" height="0.02m"><Translation x="1.31m" y="3.29m" z="0.93m"/><Rotation y="90degree"/><Surface ref="rim"/></CylinderAppearance>
+<SphereAppearance name="DustCap3.29_0.93" radius="0.042m"><Translation x="1.328m" y="3.29m" z="0.93m"/><Surface ref="black"/></SphereAppearance>
+<BoxAppearance name="PlayerMat0" depth="1.75m" width="1.38m" height="0.016m"><Translation x="0.1m" y="1.85m" z="0.208m"/><Surface ref="rim"/></BoxAppearance>
+<BoxAppearance name="PlayerAccent0" depth="0.035m" width="1.38m" height="0.018m"><Translation x="1m" y="1.85m" z="0.222m"/><Surface ref="gold"/></BoxAppearance>
+<ComplexAppearance name="RolePlate0"><Translation x="2.4m" y="1.85m" z="0.12m"/><Surface albedo="rgb(255,255,255)" ambient="1" roughness="1" texture="assets/drums.png"/><Vertices>0 -0.74 -0.1 0 0.74 -0.1 0 0.74 0.1 0 -0.74 0.1</Vertices><TexCoords>0 0 1 0 1 1 0 1</TexCoords><Quads>0 1 2 3</Quads></ComplexAppearance>
+<BoxAppearance name="Monitor0" depth="0.32m" width="0.43m" height="0.22m"><Translation x="1.57m" y="1.85m" z="0.35m"/><Rotation y="-18degree"/><Surface ref="black"/></BoxAppearance>
+<BoxAppearance name="Cable0" depth="1.8m" width="0.014m" height="0.008m"><Translation x="-1.14m" y="1.85m" z="0.216m"/><Surface ref="black"/></BoxAppearance>
+<BoxAppearance name="PlayerMat1" depth="1.75m" width="1.38m" height="0.016m"><Translation x="0.1m" y="0m" z="0.208m"/><Surface ref="rim"/></BoxAppearance>
+<BoxAppearance name="PlayerAccent1" depth="0.035m" width="1.38m" height="0.018m"><Translation x="1m" y="0m" z="0.222m"/><Surface ref="mint"/></BoxAppearance>
+<ComplexAppearance name="RolePlate1"><Translation x="2.4m" y="0m" z="0.12m"/><Surface albedo="rgb(255,255,255)" ambient="1" roughness="1" texture="assets/guitar.png"/><Vertices>0 -0.74 -0.1 0 0.74 -0.1 0 0.74 0.1 0 -0.74 0.1</Vertices><TexCoords>0 0 1 0 1 1 0 1</TexCoords><Quads>0 1 2 3</Quads></ComplexAppearance>
+<BoxAppearance name="Monitor1" depth="0.32m" width="0.43m" height="0.22m"><Translation x="1.57m" y="0m" z="0.35m"/><Rotation y="-18degree"/><Surface ref="black"/></BoxAppearance>
+<BoxAppearance name="Cable1" depth="1.8m" width="0.014m" height="0.008m"><Translation x="-1.14m" y="0m" z="0.216m"/><Surface ref="black"/></BoxAppearance>
+<BoxAppearance name="PlayerMat2" depth="1.75m" width="1.38m" height="0.016m"><Translation x="0.1m" y="-1.85m" z="0.208m"/><Surface ref="rim"/></BoxAppearance>
+<BoxAppearance name="PlayerAccent2" depth="0.035m" width="1.38m" height="0.018m"><Translation x="1m" y="-1.85m" z="0.222m"/><Surface ref="purple"/></BoxAppearance>
+<ComplexAppearance name="RolePlate2"><Translation x="2.4m" y="-1.85m" z="0.12m"/><Surface albedo="rgb(255,255,255)" ambient="1" roughness="1" texture="assets/keyboard.png"/><Vertices>0 -0.74 -0.1 0 0.74 -0.1 0 0.74 0.1 0 -0.74 0.1</Vertices><TexCoords>0 0 1 0 1 1 0 1</TexCoords><Quads>0 1 2 3</Quads></ComplexAppearance>
+<BoxAppearance name="Monitor2" depth="0.32m" width="0.43m" height="0.22m"><Translation x="1.57m" y="-1.85m" z="0.35m"/><Rotation y="-18degree"/><Surface ref="black"/></BoxAppearance>
+<BoxAppearance name="Cable2" depth="1.8m" width="0.014m" height="0.008m"><Translation x="-1.14m" y="-1.85m" z="0.216m"/><Surface ref="black"/></BoxAppearance>
+</Compound>
+<Compound name="Instruments">
+<CylinderAppearance name="KickShell" radius="0.245m" height="0.28m"><Translation x="0.1m" y="1.85m" z="0.46m"/><Rotation y="90degree"/><Surface ref="drum"/></CylinderAppearance>
+<CylinderAppearance name="KickSkin" radius="0.228m" height="0.013m"><Translation x="0.253m" y="1.85m" z="0.46m"/><Rotation y="90degree"/><Surface ref="white"/></CylinderAppearance>
+<CylinderAppearance name="KickPort" radius="0.049m" height="0.016m"><Translation x="0.264m" y="1.93m" z="0.41m"/><Rotation y="90degree"/><Surface ref="black"/></CylinderAppearance>
+<CylinderAppearance name="TomShell0" radius="0.135m" height="0.17m"><Translation x="-0.02m" y="1.57m" z="0.81m"/><Surface ref="drum"/></CylinderAppearance>
+<CylinderAppearance name="TomRim0" radius="0.143m" height="0.018m"><Translation x="-0.02m" y="1.57m" z="0.9m"/><Surface ref="steel"/></CylinderAppearance>
+<CylinderAppearance name="TomSkin0" radius="0.13m" height="0.008m"><Translation x="-0.02m" y="1.57m" z="0.913m"/><Surface ref="white"/></CylinderAppearance>
+<CylinderAppearance name="TomShell1" radius="0.135m" height="0.17m"><Translation x="-0.02m" y="2.13m" z="0.81m"/><Surface ref="drum"/></CylinderAppearance>
+<CylinderAppearance name="TomRim1" radius="0.143m" height="0.018m"><Translation x="-0.02m" y="2.13m" z="0.9m"/><Surface ref="steel"/></CylinderAppearance>
+<CylinderAppearance name="TomSkin1" radius="0.13m" height="0.008m"><Translation x="-0.02m" y="2.13m" z="0.913m"/><Surface ref="white"/></CylinderAppearance>
+<CylinderAppearance name="SnareShell" radius="0.16m" height="0.13m"><Translation x="-0.08m" y="1.38m" z="0.68m"/><Surface ref="steel"/></CylinderAppearance>
+<CylinderAppearance name="SnareSkin" radius="0.155m" height="0.009m"><Translation x="-0.08m" y="1.38m" z="0.752m"/><Surface ref="white"/></CylinderAppearance>
+<CylinderAppearance name="CymbalStand0" radius="0.016m" height="0.91m"><Translation x="-0.03m" y="1.23m" z="0.68m"/><Surface ref="steel"/></CylinderAppearance>
+<CylinderAppearance name="Cymbal0" radius="0.22m" height="0.013m"><Translation x="-0.03m" y="1.23m" z="1.14m"/><Surface ref="gold"/></CylinderAppearance>
+<SphereAppearance name="CymbalBell0" radius="0.037m"><Translation x="-0.03m" y="1.23m" z="1.15m"/><Surface ref="gold"/></SphereAppearance>
+<BoxAppearance name="CymbalFoot0" depth="0.3m" width="0.2m" height="0.025m"><Translation x="-0.03m" y="1.23m" z="0.24m"/><Surface ref="steel"/></BoxAppearance>
+<CylinderAppearance name="CymbalStand1" radius="0.016m" height="0.91m"><Translation x="-0.03m" y="2.48m" z="0.68m"/><Surface ref="steel"/></CylinderAppearance>
+<CylinderAppearance name="Cymbal1" radius="0.22m" height="0.013m"><Translation x="-0.03m" y="2.48m" z="1.14m"/><Surface ref="gold"/></CylinderAppearance>
+<SphereAppearance name="CymbalBell1" radius="0.037m"><Translation x="-0.03m" y="2.48m" z="1.15m"/><Surface ref="gold"/></SphereAppearance>
+<BoxAppearance name="CymbalFoot1" depth="0.3m" width="0.2m" height="0.025m"><Translation x="-0.03m" y="2.48m" z="0.24m"/><Surface ref="steel"/></BoxAppearance>
+<BoxAppearance name="GuitarBody" depth="0.065m" width="0.26m" height="0.3m"><Translation x="0.61m" y="-0.06m" z="0.79m"/><Rotation x="-18degree"/><Surface ref="wood"/></BoxAppearance>
+<SphereAppearance name="GuitarLowerCurve" radius="0.13m"><Translation x="0.61m" y="-0.09m" z="0.71m"/><Surface ref="wood"/></SphereAppearance>
+<BoxAppearance name="GuitarPickguard" depth="0.012m" width="0.17m" height="0.21m"><Translation x="0.655m" y="-0.055m" z="0.8m"/><Rotation x="-18degree"/><Surface ref="black"/></BoxAppearance>
+<BoxAppearance name="GuitarNeck" depth="0.045m" width="0.055m" height="0.48m"><Translation x="0.62m" y="0.065m" z="1.1m"/><Rotation x="-18degree"/><Surface ref="wood"/></BoxAppearance>
+<BoxAppearance name="GuitarFretboard" depth="0.008m" width="0.045m" height="0.47m"><Translation x="0.65m" y="0.065m" z="1.1m"/><Rotation x="-18degree"/><Surface ref="black"/></BoxAppearance>
+<BoxAppearance name="GuitarHeadstock" depth="0.055m" width="0.085m" height="0.12m"><Translation x="0.62m" y="0.15m" z="1.36m"/><Rotation x="-18degree"/><Surface ref="gold"/></BoxAppearance>
+<BoxAppearance name="String0" depth="0.003m" width="0.002m" height="0.44m"><Translation x="0.661m" y="-0.062m" z="0.91m"/><Rotation x="-18degree"/><Surface ref="steel"/></BoxAppearance>
+<BoxAppearance name="String1" depth="0.003m" width="0.002m" height="0.44m"><Translation x="0.661m" y="-0.048m" z="0.91m"/><Rotation x="-18degree"/><Surface ref="steel"/></BoxAppearance>
+<BoxAppearance name="String2" depth="0.003m" width="0.002m" height="0.44m"><Translation x="0.661m" y="-0.034m" z="0.91m"/><Rotation x="-18degree"/><Surface ref="steel"/></BoxAppearance>
+<BoxAppearance name="String3" depth="0.003m" width="0.002m" height="0.44m"><Translation x="0.661m" y="-0.019999999999999997m" z="0.91m"/><Rotation x="-18degree"/><Surface ref="steel"/></BoxAppearance>
+<BoxAppearance name="String4" depth="0.003m" width="0.002m" height="0.44m"><Translation x="0.661m" y="-0.005999999999999998m" z="0.91m"/><Rotation x="-18degree"/><Surface ref="steel"/></BoxAppearance>
+<BoxAppearance name="String5" depth="0.003m" width="0.002m" height="0.44m"><Translation x="0.661m" y="0.008000000000000007m" z="0.91m"/><Rotation x="-18degree"/><Surface ref="steel"/></BoxAppearance>
+<BoxAppearance name="KeyboardCase" depth="0.3m" width="1.04m" height="0.095m"><Translation x="0.24m" y="-1.85m" z="0.865m"/><Surface ref="black"/></BoxAppearance>
+<BoxAppearance name="KeyboardControlPanel" depth="0.095m" width="1m" height="0.012m"><Translation x="0.145m" y="-1.85m" z="0.917m"/><Surface ref="rim"/></BoxAppearance>
+<BoxAppearance name="WhiteKey0" depth="0.17m" width="0.037m" height="0.025m"><Translation x="0.295m" y="-2.32m" z="0.919m"/><Surface ref="keys"/></BoxAppearance>
+<BoxAppearance name="BlackKey0" depth="0.088m" width="0.018m" height="0.024m"><Translation x="0.255m" y="-2.3009999999999997m" z="0.942m"/><Surface ref="black"/></BoxAppearance>
+<BoxAppearance name="WhiteKey1" depth="0.17m" width="0.037m" height="0.025m"><Translation x="0.295m" y="-2.2809999999999997m" z="0.919m"/><Surface ref="keys"/></BoxAppearance>
+<BoxAppearance name="BlackKey1" depth="0.088m" width="0.018m" height="0.024m"><Translation x="0.255m" y="-2.2619999999999996m" z="0.942m"/><Surface ref="black"/></BoxAppearance>
+<BoxAppearance name="WhiteKey2" depth="0.17m" width="0.037m" height="0.025m"><Translation x="0.295m" y="-2.242m" z="0.919m"/><Surface ref="keys"/></BoxAppearance>
+<BoxAppearance name="WhiteKey3" depth="0.17m" width="0.037m" height="0.025m"><Translation x="0.295m" y="-2.203m" z="0.919m"/><Surface ref="keys"/></BoxAppearance>
+<BoxAppearance name="BlackKey3" depth="0.088m" width="0.018m" height="0.024m"><Translation x="0.255m" y="-2.1839999999999997m" z="0.942m"/><Surface ref="black"/></BoxAppearance>
+<BoxAppearance name="WhiteKey4" depth="0.17m" width="0.037m" height="0.025m"><Translation x="0.295m" y="-2.1639999999999997m" z="0.919m"/><Surface ref="keys"/></BoxAppearance>
+<BoxAppearance name="BlackKey4" depth="0.088m" width="0.018m" height="0.024m"><Translation x="0.255m" y="-2.1449999999999996m" z="0.942m"/><Surface ref="black"/></BoxAppearance>
+<BoxAppearance name="WhiteKey5" depth="0.17m" width="0.037m" height="0.025m"><Translation x="0.295m" y="-2.125m" z="0.919m"/><Surface ref="keys"/></BoxAppearance>
+<BoxAppearance name="BlackKey5" depth="0.088m" width="0.018m" height="0.024m"><Translation x="0.255m" y="-2.106m" z="0.942m"/><Surface ref="black"/></BoxAppearance>
+<BoxAppearance name="WhiteKey6" depth="0.17m" width="0.037m" height="0.025m"><Translation x="0.295m" y="-2.086m" z="0.919m"/><Surface ref="keys"/></BoxAppearance>
+<BoxAppearance name="WhiteKey7" depth="0.17m" width="0.037m" height="0.025m"><Translation x="0.295m" y="-2.0469999999999997m" z="0.919m"/><Surface ref="keys"/></BoxAppearance>
+<BoxAppearance name="BlackKey7" depth="0.088m" width="0.018m" height="0.024m"><Translation x="0.255m" y="-2.0279999999999996m" z="0.942m"/><Surface ref="black"/></BoxAppearance>
+<BoxAppearance name="WhiteKey8" depth="0.17m" width="0.037m" height="0.025m"><Translation x="0.295m" y="-2.008m" z="0.919m"/><Surface ref="keys"/></BoxAppearance>
+<BoxAppearance name="BlackKey8" depth="0.088m" width="0.018m" height="0.024m"><Translation x="0.255m" y="-1.989m" z="0.942m"/><Surface ref="black"/></BoxAppearance>
+<BoxAppearance name="WhiteKey9" depth="0.17m" width="0.037m" height="0.025m"><Translation x="0.295m" y="-1.9689999999999999m" z="0.919m"/><Surface ref="keys"/></BoxAppearance>
+<BoxAppearance name="WhiteKey10" depth="0.17m" width="0.037m" height="0.025m"><Translation x="0.295m" y="-1.9299999999999997m" z="0.919m"/><Surface ref="keys"/></BoxAppearance>
+<BoxAppearance name="BlackKey10" depth="0.088m" width="0.018m" height="0.024m"><Translation x="0.255m" y="-1.9109999999999998m" z="0.942m"/><Surface ref="black"/></BoxAppearance>
+<BoxAppearance name="WhiteKey11" depth="0.17m" width="0.037m" height="0.025m"><Translation x="0.295m" y="-1.8909999999999998m" z="0.919m"/><Surface ref="keys"/></BoxAppearance>
+<BoxAppearance name="BlackKey11" depth="0.088m" width="0.018m" height="0.024m"><Translation x="0.255m" y="-1.8719999999999999m" z="0.942m"/><Surface ref="black"/></BoxAppearance>
+<BoxAppearance name="WhiteKey12" depth="0.17m" width="0.037m" height="0.025m"><Translation x="0.295m" y="-1.8519999999999999m" z="0.919m"/><Surface ref="keys"/></BoxAppearance>
+<BoxAppearance name="BlackKey12" depth="0.088m" width="0.018m" height="0.024m"><Translation x="0.255m" y="-1.833m" z="0.942m"/><Surface ref="black"/></BoxAppearance>
+<BoxAppearance name="WhiteKey13" depth="0.17m" width="0.037m" height="0.025m"><Translation x="0.295m" y="-1.8129999999999997m" z="0.919m"/><Surface ref="keys"/></BoxAppearance>
+<BoxAppearance name="WhiteKey14" depth="0.17m" width="0.037m" height="0.025m"><Translation x="0.295m" y="-1.7739999999999998m" z="0.919m"/><Surface ref="keys"/></BoxAppearance>
+<BoxAppearance name="BlackKey14" depth="0.088m" width="0.018m" height="0.024m"><Translation x="0.255m" y="-1.755m" z="0.942m"/><Surface ref="black"/></BoxAppearance>
+<BoxAppearance name="WhiteKey15" depth="0.17m" width="0.037m" height="0.025m"><Translation x="0.295m" y="-1.7349999999999999m" z="0.919m"/><Surface ref="keys"/></BoxAppearance>
+<BoxAppearance name="BlackKey15" depth="0.088m" width="0.018m" height="0.024m"><Translation x="0.255m" y="-1.716m" z="0.942m"/><Surface ref="black"/></BoxAppearance>
+<BoxAppearance name="WhiteKey16" depth="0.17m" width="0.037m" height="0.025m"><Translation x="0.295m" y="-1.6959999999999997m" z="0.919m"/><Surface ref="keys"/></BoxAppearance>
+<BoxAppearance name="WhiteKey17" depth="0.17m" width="0.037m" height="0.025m"><Translation x="0.295m" y="-1.6569999999999998m" z="0.919m"/><Surface ref="keys"/></BoxAppearance>
+<BoxAppearance name="BlackKey17" depth="0.088m" width="0.018m" height="0.024m"><Translation x="0.255m" y="-1.638m" z="0.942m"/><Surface ref="black"/></BoxAppearance>
+<BoxAppearance name="WhiteKey18" depth="0.17m" width="0.037m" height="0.025m"><Translation x="0.295m" y="-1.6179999999999999m" z="0.919m"/><Surface ref="keys"/></BoxAppearance>
+<BoxAppearance name="BlackKey18" depth="0.088m" width="0.018m" height="0.024m"><Translation x="0.255m" y="-1.599m" z="0.942m"/><Surface ref="black"/></BoxAppearance>
+<BoxAppearance name="WhiteKey19" depth="0.17m" width="0.037m" height="0.025m"><Translation x="0.295m" y="-1.5789999999999997m" z="0.919m"/><Surface ref="keys"/></BoxAppearance>
+<BoxAppearance name="BlackKey19" depth="0.088m" width="0.018m" height="0.024m"><Translation x="0.255m" y="-1.5599999999999998m" z="0.942m"/><Surface ref="black"/></BoxAppearance>
+<BoxAppearance name="WhiteKey20" depth="0.17m" width="0.037m" height="0.025m"><Translation x="0.295m" y="-1.5399999999999998m" z="0.919m"/><Surface ref="keys"/></BoxAppearance>
+<BoxAppearance name="WhiteKey21" depth="0.17m" width="0.037m" height="0.025m"><Translation x="0.295m" y="-1.501m" z="0.919m"/><Surface ref="keys"/></BoxAppearance>
+<BoxAppearance name="BlackKey21" depth="0.088m" width="0.018m" height="0.024m"><Translation x="0.255m" y="-1.482m" z="0.942m"/><Surface ref="black"/></BoxAppearance>
+<BoxAppearance name="WhiteKey22" depth="0.17m" width="0.037m" height="0.025m"><Translation x="0.295m" y="-1.4619999999999997m" z="0.919m"/><Surface ref="keys"/></BoxAppearance>
+<BoxAppearance name="BlackKey22" depth="0.088m" width="0.018m" height="0.024m"><Translation x="0.255m" y="-1.4429999999999998m" z="0.942m"/><Surface ref="black"/></BoxAppearance>
+<BoxAppearance name="WhiteKey23" depth="0.17m" width="0.037m" height="0.025m"><Translation x="0.295m" y="-1.4229999999999998m" z="0.919m"/><Surface ref="keys"/></BoxAppearance>
+<BoxAppearance name="WhiteKey24" depth="0.17m" width="0.037m" height="0.025m"><Translation x="0.295m" y="-1.384m" z="0.919m"/><Surface ref="keys"/></BoxAppearance>
+<CylinderAppearance name="KeyboardLeg-2.25" radius="0.016m" height="0.64m"><Translation x="0.24m" y="-2.25m" z="0.54m"/><Surface ref="steel"/></CylinderAppearance>
+<BoxAppearance name="KeyboardFoot-2.25" depth="0.44m" width="0.055m" height="0.035m"><Translation x="0.24m" y="-2.25m" z="0.232m"/><Surface ref="steel"/></BoxAppearance>
+<CylinderAppearance name="KeyboardLeg-1.45" radius="0.016m" height="0.64m"><Translation x="0.24m" y="-1.45m" z="0.54m"/><Surface ref="steel"/></CylinderAppearance>
+<BoxAppearance name="KeyboardFoot-1.45" depth="0.44m" width="0.055m" height="0.035m"><Translation x="0.24m" y="-1.45m" z="0.232m"/><Surface ref="steel"/></BoxAppearance>
+<BoxAppearance name="KeyboardScreen" depth="0.06m" width="0.14m" height="0.009m"><Translation x="0.146m" y="-2.15m" z="0.928m"/><Surface ref="mint"/></BoxAppearance>
+</Compound>
+<Compound name="Band">
+<Body ref="K1" name="bot-1"><Set name="TeamColor" value="orange"/><Translation x="-0.55m" y="1.85m" z="0.957m"/></Body>
+<Body ref="K1" name="bot-2"><Set name="TeamColor" value="green"/><Translation x="0.3m" y="0m" z="0.737m"/></Body>
+<Body ref="K1" name="bot-3"><Set name="TeamColor" value="purple"/><Translation x="-0.15m" y="-1.85m" z="0.737m"/></Body>
+</Compound>
+</Scene>
+</Simulation>
