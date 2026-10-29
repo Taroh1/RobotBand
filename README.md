@@ -1,5 +1,7 @@
 # Robot Band · Chord & Loop Studio
 
+Den vorhandenen lokalen Codex-Chat auf einem zweiten Gerät weiterführen: [verschlüsseltes Übertragungspaket und Importanleitung](chat-transfer/README.md). Der Schlüssel wird separat aufbewahrt.
+
 Lokales Musikstudio für Launchpad X und eine Band mit **drei Bots**. Melodische Pads spielen vollständige Akkorde; Schlagzeug-Pads einzelne Sounds. Mit vier Loop-Spuren kannst du Beats, Akkorde und synthetische Gesangsharmonien übereinanderlegen. Musikrollen und physische Roboter sind getrennt: Eine zusätzliche Audiospur benötigt keinen vierten Bot.
 
 ## Drei Bots
